@@ -1,0 +1,39 @@
+
+###########################################################################################################################################
+# FTP
+###########################################################################################################################################
+
+alert tcp any any -> any 21 (msg:"FTP"; sid:10; rev:1;)
+
+alert tcp any any -> any 21 (msg:"FTP Anonimo"; content:"anonymous"; sid:11; rev:1;)
+
+# alert tcp any any -> any 21 (msg:"FTP Anonimo depth"; content:"anonymous"; depth:32; sid:12; rev:1;)
+
+# alert tcp any any -> any 21 (msg:"FTP Anonimo depth nocase"; content:"anonymous"; nocase; depth:32; sid:13; rev:1;)
+
+# alert tcp any any -> any 21 (msg:"FTP user anonymous depth nocase"; content:"user anonymous"; nocase; depth:32; sid:14; rev:1;)
+
+
+###########################################################################################################################################
+# NMAP
+###########################################################################################################################################
+
+# alert tcp any any -> any any (msg:"Port Scan"; flags:S; threshold: type both, track by_src, count 20, seconds 3; sid:20; rev:1;)
+
+# alert tcp any any -> any any (msg:"Nmap -sS"; flags:S; COMPLETAR; sid:21; rev:1;)
+
+# alert tcp any any -> any any (msg:"Nmap -sA"; flags:S; COMPLETAR; sid:22; rev:1;)
+
+# alert tcp any any -> any any (msg:"Nmap -sF"; flags:F*; sid:23; rev:1;)
+
+# alert tcp any any -> any any (msg:"Nmap -sF"; flags:F; sid:24; rev:1;)
+
+
+###########################################################################################################################################
+# ONESIXTYONE
+###########################################################################################################################################
+
+# alert udp any any -> any 161 (msg:"onesixtyone"; threshold: type both, track by_src, count 5, seconds 10; flow:to_server; sid:30; rev:1;)
+
+# alert udp any any -> any any (msg:"onesixtyone"; content:"|02 01 00 02 01 00 30 0E 30 0C 06 08 2B 06 01 02 01 01 01 00 05 00|"; threshold: type both, track by_src, count 5, seconds 10; sid:31; rev:2;)
+

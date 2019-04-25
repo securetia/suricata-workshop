@@ -2,7 +2,13 @@
 
 apt-get -y install --no-install-recommends suricata nmap onesixtyone wireshark inotify-tools
 
-cp -f suricata.yaml /etc/suricata/
+#cp -f suricata.yaml /etc/suricata/
 
-cp -f securetia.rules /etc/suricata/rules/
+#cp -f securetia.rules /etc/suricata/rules/
+
+rm -f /etc/suricata/suricata.yaml
+rm -f /etc/suricata/securetia.rules
+
+ln -s $(readlink -f ./suricata.yaml) /etc/suricata/
+ln -s $(readlink -f ./securetia.rules) /etc/suricata/
 

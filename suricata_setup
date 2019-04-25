@@ -1,5 +1,6 @@
 #!/bin/sh
 
+apt-get update
 apt-get -y install --no-install-recommends suricata nmap onesixtyone wireshark inotify-tools
 
 #cp -f suricata.yaml /etc/suricata/
